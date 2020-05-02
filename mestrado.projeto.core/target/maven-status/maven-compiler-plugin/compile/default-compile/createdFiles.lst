@@ -1,0 +1,11 @@
+mestrado\projeto\core\App.class
+mestrado\projeto\helpers\GeneralHelper.class
+mestrado\projeto\helpers\StatisticsHelper.class
+mestrado\projeto\helpers\FileAttributesHelper.class
+mestrado\projeto\helpers\JsonHelper.class
+mestrado\projeto\core\entities\Word.class
+mestrado\projeto\test\code\App.class
+mestrado\projeto\core\entities\FileAttributes.class
+mestrado\projeto\core\entities\FileProcessed.class
+mestrado\projeto\helpers\elasticsearch\ElasticSearchHelper.class
+mestrado\projeto\helpers\StopwordsHelper.class

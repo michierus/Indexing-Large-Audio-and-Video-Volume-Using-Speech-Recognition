@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>mestrado.projeto</groupId>
+  <artifactId>produtor</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <name>produtor</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- These two lines were added in order to properly setup the java JRE to 1.8. Because after compilation it was setting to 1.5 version. -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    
+    <kafka.version>2.3.0</kafka.version>
+    <slf4j.version>1.7.7</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Apache Kafka dependencies -->
+    <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>kafka-streams</artifactId>
+        <version>${kafka.version}</version>
+    </dependency>
+    
+    <!-- mestrado.projeto.core dependency -->
+    <dependency>
+    	<groupId>mestrado.projeto</groupId>
+  		<artifactId>core</artifactId>
+  		<version>0.0.1</version>
+    </dependency>
+   
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+    <!-- Used to know which OS we are using -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.0</version>
+	</dependency>
+	 
+  </dependencies>
+  
+   <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>                
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>mestrado.projeto.produtor.ProducerApp</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+			          <descriptorRef>jar-with-dependencies</descriptorRef>			          
+			        </descriptorRefs>
+                </configuration>
+                <executions>
+				  <execution>
+					<id>make-assembly</id>
+                                        <!-- bind to the packaging phase -->
+					<phase>package</phase> 
+					<goals>
+						<goal>single</goal>
+					</goals>
+				  </execution>
+				</executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
